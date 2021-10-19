@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  k6:
+    image: loadimpact/k6:latest
+    container_name: k9_loadtest
+#    entrypoint: /bin/sh
+#    user: root
+    networks:
+      - k6_default
+    ports:
+      - "6565:6565"
+    volumes:
+      - ./scripts:/scripts
+
+networks:
+  k6_default:
